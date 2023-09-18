@@ -1,38 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 const Input = ({ style }) => {
-  const inputArea = document.querySelector("input");
-
   const [value, setValue] = useState("");
-  const [isFocused, setIsFocused] = useState(false);
 
-  // useEffect(() => {
-  //
-  //   return document.removeEventListener("keyup", checkKeyUp);
-  // }, []);
+  useEffect(() => {
+    document
+      .querySelector("input")
+      .addEventListener("keyup", (e) => checkKeyUp(e));
+    console.log(document.querySelector("input"));
+    return document.removeEventListener("keyup", checkKeyUp);
+  }, []);
 
-  const onChangeInput = (e) => {
+  const checkKeyUp = (e) => {
     e.preventDefault();
-    if (isFocused && e.key === "Enter")
-      document
-        .querySelector("input")
-        .addEventListener("keyup", onCleanInput(e));
-    setValue(e.currentTarget.value);
-    console.log(e.key);
-
-    if (!isFocused) document.removeEventListener("keyup");
+    if (e.key === "Enter") {
+      onCleanInput();
+      console.log("lol");
+    }
   };
-
-  const checkKeyUp = (e) => {};
   const onCleanInput = () => {
     setValue("");
-    inputArea.value = "";
-    // document.removeEventListener("keyup", () => checkKeyUp());
+    document.querySelector("input").value = "";
   };
+
   return (
-    <form style={style}>
+    <div style={style}>
       <h1
         style={{
           width: "100%",
@@ -53,10 +47,8 @@ const Input = ({ style }) => {
         <input
           style={{ border: "none", outline: "none", height: 40, padding: 10 }}
           className="input"
-          onFocus={(e) => setIsFocused(e.isTrusted)}
-          onBlur={(e) => setIsFocused(!e.isTrusted)}
           type="text"
-          onChange={(e) => onChangeInput(e)}
+          onChange={(e) => setValue(e.currentTarget.value)}
           placeholder="Управляемый input"
         />
         <IconButton
@@ -68,7 +60,7 @@ const Input = ({ style }) => {
           <DeleteIcon />
         </IconButton>
       </div>
-    </form>
+    </div>
   );
 };
 

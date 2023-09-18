@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Counter = () => {
+const FunctionalCounter = ({ style }) => {
   const [counter, setCounter] = useState(0);
 
   const onIncrement = () => {
@@ -13,7 +13,7 @@ const Counter = () => {
   };
 
   return (
-    <div>
+    <div style={style}>
       <h1
         style={{
           background: "lightgrey",
@@ -24,6 +24,7 @@ const Counter = () => {
       >
         {counter}
       </h1>
+      <h3 style={{ textAlign: "center" }}>Functional component</h3>
       <button style={{ width: 100 }} onClick={onIncrement}>
         Increment
       </button>
@@ -34,4 +35,4 @@ const Counter = () => {
   );
 };
 
-export default Counter;
+export default FunctionalCounter;

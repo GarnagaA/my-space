@@ -20,7 +20,7 @@ class ClassComponent extends React.Component {
 
   render() {
     return (
-      <>
+      <div style={this.props.style}>
         <h1
           style={{
             background: "lightgrey",
@@ -31,13 +31,14 @@ class ClassComponent extends React.Component {
         >
           {this.state.count}
         </h1>
+        <h3 style={{ textAlign: "center" }}>Class component</h3>
         <button style={{ width: 100 }} onClick={this.increment}>
           Increment
         </button>
         <button style={{ width: 100 }} onClick={this.decrement}>
           Decrement
         </button>
-      </>
+      </div>
     );
   }
 }

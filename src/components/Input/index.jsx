@@ -6,10 +6,7 @@ const Input = ({ style }) => {
   const [value, setValue] = useState("");
 
   useEffect(() => {
-    document
-      .querySelector("input")
-      .addEventListener("keyup", (e) => checkKeyUp(e));
-    console.log(document.querySelector("input"));
+    document.querySelector("input").addEventListener("keyup", checkKeyUp);
     return document.removeEventListener("keyup", checkKeyUp);
   }, []);
 
@@ -17,7 +14,7 @@ const Input = ({ style }) => {
     e.preventDefault();
     if (e.key === "Enter") {
       onCleanInput();
-      console.log("lol");
+      console.log(e.key);
     }
   };
   const onCleanInput = () => {
@@ -45,7 +42,7 @@ const Input = ({ style }) => {
         }}
       >
         <input
-          style={{ border: "none", outline: "none", height: 40, padding: 10 }}
+          style={{ border: "none", outline: "none", padding: 10 }}
           className="input"
           type="text"
           onChange={(e) => setValue(e.currentTarget.value)}

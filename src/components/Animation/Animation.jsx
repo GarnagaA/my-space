@@ -1,9 +1,15 @@
 import React from "react";
-
-const Animation = () => {
+import { useLottie } from "lottie-react";
+import rocketJSON from "./animation_lmov66ou.json";
+const Animation = ({ style }) => {
+  const options = {
+    animationData: rocketJSON,
+    loop: true,
+  };
+  const { View } = useLottie(options);
   return (
-    <div>
-      <img src="" alt="animation" />
+    <div className="rocket" style={style}>
+      {View}
     </div>
   );
 };

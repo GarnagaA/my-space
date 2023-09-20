@@ -5,16 +5,10 @@ import DeleteIcon from "@mui/icons-material/Delete";
 const Input = ({ style }) => {
   const [value, setValue] = useState("");
 
-  // useEffect(() => {
-  //   document.querySelector("input").addEventListener("keyup", checkKeyUp);
-  //   return document.removeEventListener("keyup", checkKeyUp);
-  // }, []);
-
   const checkKeyUp = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" || e.key === "Escape") {
       e.preventDefault();
       onCleanInput();
-      console.log(e.key);
     }
   };
   const onCleanInput = () => {

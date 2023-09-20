@@ -1,18 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 const Input = ({ style }) => {
   const [value, setValue] = useState("");
 
-  useEffect(() => {
-    document.querySelector("input").addEventListener("keyup", checkKeyUp);
-    return document.removeEventListener("keyup", checkKeyUp);
-  }, []);
+  // useEffect(() => {
+  //   document.querySelector("input").addEventListener("keyup", checkKeyUp);
+  //   return document.removeEventListener("keyup", checkKeyUp);
+  // }, []);
 
   const checkKeyUp = (e) => {
-    e.preventDefault();
     if (e.key === "Enter") {
+      e.preventDefault();
       onCleanInput();
       console.log(e.key);
     }
@@ -45,6 +45,7 @@ const Input = ({ style }) => {
           style={{ border: "none", outline: "none", padding: 10 }}
           className="input"
           type="text"
+          onKeyUp={checkKeyUp}
           onChange={(e) => setValue(e.currentTarget.value)}
           placeholder="Управляемый input"
         />

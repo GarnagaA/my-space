@@ -1,6 +1,6 @@
 import React from "react";
 import { useLottie } from "lottie-react";
-import rocketJSON from "./animation_lmov66ou.json";
+import rocketJSON from "./space-walking.json";
 
 const Animation = ({ style }) => {
   const options = {

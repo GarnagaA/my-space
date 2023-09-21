@@ -1,0 +1,16 @@
+.button {
+  padding: 8px 16px;
+  color: #371A45;
+  border: 1px solid #371A45 ;
+  border-radius: 10px;
+  background-color: white;
+  &:hover {
+    color: #980AD0;
+    border: 1px solid #980AD0; ;
+  }
+  &:disabled {
+    color: #807e83;
+    border: 1px solid #3e3d3f;
+  }
+}
+

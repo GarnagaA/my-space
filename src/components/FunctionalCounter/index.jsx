@@ -17,7 +17,7 @@ const FunctionalCounter = ({ style }) => {
       <h1
         style={{
           background: "lightgrey",
-          width: 200,
+          width: "100%",
           textAlign: "center",
           marginBottom: 10,
         }}
@@ -25,10 +25,10 @@ const FunctionalCounter = ({ style }) => {
         {counter}
       </h1>
       <h3 style={{ textAlign: "center" }}>Functional component</h3>
-      <button style={{ width: 100 }} onClick={onIncrement}>
+      <button style={{ width: "50%" }} onClick={onIncrement}>
         Increment
       </button>
-      <button style={{ width: 100 }} onClick={onDecrement}>
+      <button style={{ width: "50%" }} onClick={onDecrement}>
         Decrement
       </button>
     </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
-
-const FunctionalCounter = ({ style }) => {
+import classes from "./index.module.scss";
+import Button from "../Button";
+const FunctionalCounter = (props) => {
   const [counter, setCounter] = useState(0);
 
   const onIncrement = () => {
@@ -13,24 +14,21 @@ const FunctionalCounter = ({ style }) => {
   };
 
   return (
-    <div style={style}>
-      <h1
-        style={{
-          background: "lightgrey",
-          width: "100%",
-          textAlign: "center",
-          marginBottom: 10,
-        }}
-      >
-        {counter}
-      </h1>
-      <h3 style={{ textAlign: "center" }}>Functional component</h3>
-      <button style={{ width: "50%" }} onClick={onIncrement}>
-        Increment
-      </button>
-      <button style={{ width: "50%" }} onClick={onDecrement}>
-        Decrement
-      </button>
+    <div className={classes.counterWrapper} style={props.style}>
+      <h2 className={classes.title}>Functional component</h2>
+      <h2 className={classes.counterWindow}>{counter}</h2>
+      <div className={classes.buttons}>
+        <Button
+          onClick={onIncrement}
+          text="Increment"
+          style={{ flex: "1", marginRight: 5 }}
+        />
+        <Button
+          onClick={onDecrement}
+          text="Decrement"
+          style={{ flex: "1", marginLeft: 5 }}
+        />
+      </div>
     </div>
   );
 };

@@ -20,10 +20,11 @@ const Counters = () => {
           display: "flex",
           justifyContent: "space-around",
           width: "100%",
+          marginTop: 30,
         }}
       >
-        <FunctionalCounter style={{ border: "1px solid black", margin: 10 }} />
-        <ClassComponent style={{ border: "1px solid black", margin: 10 }} />
+        <FunctionalCounter />
+        <ClassComponent />
       </div>
       <div
         style={{

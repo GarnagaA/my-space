@@ -1,0 +1,18 @@
+.counterWrapper{
+  padding: 0.6rem 1rem;
+  color: #371A45;
+  border-radius: 10px;
+  border: 1px solid #371A45 ;
+
+  h2.title, h2.counterWindow{
+    width: 100%;
+    text-align: center;
+  }
+
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+}

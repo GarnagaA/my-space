@@ -1,4 +1,6 @@
 import React from "react";
+import classes from ".//index.module.scss";
+import Button from "../Button";
 
 class ClassComponent extends React.Component {
   constructor(props) {
@@ -20,24 +22,21 @@ class ClassComponent extends React.Component {
 
   render() {
     return (
-      <div style={this.props.style}>
-        <h1
-          style={{
-            background: "lightgrey",
-            width: 200,
-            textAlign: "center",
-            marginBottom: 10,
-          }}
-        >
-          {this.state.count}
-        </h1>
-        <h3 style={{ textAlign: "center" }}>Class component</h3>
-        <button style={{ width: 100 }} onClick={this.increment}>
-          Increment
-        </button>
-        <button style={{ width: 100 }} onClick={this.decrement}>
-          Decrement
-        </button>
+      <div className={classes.counterWrapper} style={this.props.style}>
+        <h2 className={classes.title}>Class Component</h2>
+        <h2 className={classes.counterWindow}>{this.state.count}</h2>
+        <div className={classes.buttons}>
+          <Button
+            onClick={this.increment}
+            text="Increment"
+            style={{ flex: "1", marginRight: 5 }}
+          />
+          <Button
+            onClick={this.decrement}
+            text="Decrement"
+            style={{ flex: "1", marginLeft: 5 }}
+          />
+        </div>
       </div>
     );
   }

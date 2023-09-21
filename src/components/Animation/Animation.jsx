@@ -1,6 +1,7 @@
 import React from "react";
 import { useLottie } from "lottie-react";
 import rocketJSON from "./animation_lmov66ou.json";
+
 const Animation = ({ style }) => {
   const options = {
     animationData: rocketJSON,

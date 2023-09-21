@@ -3,7 +3,7 @@ import "./index.scss";
 import { Link } from "react-router-dom";
 
 import { useLottie } from "lottie-react";
-import spaceMan from "./space-man-90x90.json";
+import spaceMan from "./spaceMan.json";
 
 const Header = () => {
   const options = {
@@ -32,24 +32,23 @@ const Header = () => {
   ];
 
   const onActivePage = (e) => {
-    e.stopPropagation();
     Array.from(document.querySelectorAll(".nav-list__link")).forEach((el) =>
       el.classList.remove("nav-list__link__active"),
     );
-    // console.log(e.target.parentN);
     e.target.classList.add("nav-list__link__active");
   };
 
   return (
     <div className="header__wrapper">
       <div className="header">
-        <div className="header__logo" style={{ width: 80, height: 80 }}>
-          <h2 className="header__title">My</h2>
-          <div className="header__animation" style={{ width: 50 }}>
-            {View}
+        <Link onClick={onActivePage} className="header__logo__link" to="/">
+          <div className="header__logo">
+            <h2 className="header__title">My</h2>
+            <div style={{ width: 90 }}>{View}</div>
+            <h2 className="header__title">Space</h2>
           </div>
-          <h2 className="header__title">Project</h2>
-        </div>
+        </Link>
+
         <nav className="nav__wrapper">
           <ul className="nav-list">
             {navLink.map((el, index) => {

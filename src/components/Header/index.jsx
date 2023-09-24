@@ -3,7 +3,7 @@ import "./index.scss";
 import { Link } from "react-router-dom";
 
 import { useLottie } from "lottie-react";
-import spaceMan from "./spaceMan.json";
+import spaceMan from "../../assets/lottie/spaceMan.json";
 
 const Header = () => {
   const options = {

@@ -1,41 +1,12 @@
 import React from "react";
-
-const ErrorPage = () => {
+import classes from "./ErrorPage.module.scss";
+const ErrorPage = (props) => {
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
-      <div className="emoji__wrapper">
-        <img
-          style={{
-            marginTop: "200px",
-            borderRadius: "50%",
-            boxShadow: "0 5px 20px #371A45",
-          }}
-          width={200}
-          height={200}
-          src="/img/interstellar-cry.gif"
-          alt="emoji-sorry"
-        />
+    <div className={classes.ErrorPage__wrapper} style={props.style}>
+      <div className={classes.emoji__wrapper}>
+        <img src="../../public/img/logo-brain-400х400.png" alt="asd" />
+        <h4>Упс! Что-то пошло не по плану ;(</h4>
       </div>
-      <h4
-        style={{
-          fontSize: 20,
-          fontWeight: 600,
-          color: "#371A45",
-          width: "200px",
-          marginTop: 30,
-          textAlign: "center",
-        }}
-      >
-        Упс! Что-то пошло не по плану ;(
-      </h4>
     </div>
   );
 };

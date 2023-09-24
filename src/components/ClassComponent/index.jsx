@@ -28,14 +28,13 @@ class ClassComponent extends React.Component {
         <div className={classes.buttons}>
           <Button
             onClick={this.increment}
-            text="Increment"
             style={{ flex: "1", marginRight: 5 }}
-          />
-          <Button
-            onClick={this.decrement}
-            text="Decrement"
-            style={{ flex: "1", marginLeft: 5 }}
-          />
+          >
+            Increment
+          </Button>
+          <Button onClick={this.decrement} style={{ flex: "1", marginLeft: 5 }}>
+            Decrement
+          </Button>
         </div>
       </div>
     );

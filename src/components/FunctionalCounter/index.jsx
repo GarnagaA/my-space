@@ -18,16 +18,12 @@ const FunctionalCounter = (props) => {
       <h2 className={classes.title}>Functional component</h2>
       <h2 className={classes.counterWindow}>{counter}</h2>
       <div className={classes.buttons}>
-        <Button
-          onClick={onIncrement}
-          text="Increment"
-          style={{ flex: "1", marginRight: 5 }}
-        />
-        <Button
-          onClick={onDecrement}
-          text="Decrement"
-          style={{ flex: "1", marginLeft: 5 }}
-        />
+        <Button onClick={onIncrement} style={{ flex: "1", marginRight: 5 }}>
+          Increment
+        </Button>
+        <Button onClick={onDecrement} style={{ flex: "1", marginLeft: 5 }}>
+          Decrement
+        </Button>
       </div>
     </div>
   );

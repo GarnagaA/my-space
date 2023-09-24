@@ -4,7 +4,7 @@ import Animation from "../components/Animation/Animation";
 import ClassComponent from "../components/ClassComponent";
 import Button from "../components/Button";
 const Counters = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const onClickButton = (e) => {
     e.stopPropagation();
     console.log(e);
@@ -17,17 +17,6 @@ const Counters = () => {
     >
       <div
         style={{
-          display: "flex",
-          justifyContent: "space-around",
-          width: "100%",
-          marginTop: 30,
-        }}
-      >
-        <FunctionalCounter />
-        <ClassComponent />
-      </div>
-      <div
-        style={{
           width: 500,
           height: 500,
           display: "flex",
@@ -37,7 +26,7 @@ const Counters = () => {
         onClick={onClickButton}
       >
         {isVisible ? (
-          <Animation style={{ width: 500 }} />
+          <Animation style={{ height: "100%" }} />
         ) : (
           <Button
             style={{
@@ -46,9 +35,21 @@ const Counters = () => {
               fontSize: 20,
             }}
             onClick={onClickButton}
-            text={"Show Animation"}
-          />
+            chilren
+          >
+            Show Animation
+          </Button>
         )}
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          width: "100%",
+        }}
+      >
+        <FunctionalCounter />
+        <ClassComponent />
       </div>
     </div>
   );

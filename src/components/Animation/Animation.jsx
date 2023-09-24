@@ -1,15 +1,15 @@
 import React from "react";
 import { useLottie } from "lottie-react";
-import rocketJSON from "./space-walking.json";
+import rocketJSON from "../../assets/lottie/space-walking.json";
 
-const Animation = ({ style }) => {
+const Animation = (props) => {
   const options = {
     animationData: rocketJSON,
     loop: true,
   };
   const { View } = useLottie(options);
   return (
-    <div className="rocket" style={style}>
+    <div className="rocket" {...props}>
       {View}
     </div>
   );

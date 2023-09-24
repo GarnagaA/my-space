@@ -1,8 +1,8 @@
 import { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
-
-const Input = ({ style }) => {
+import classes from "./index.module.scss";
+const MyInput = ({ style }) => {
   const [value, setValue] = useState("");
 
   const checkKeyUp = (e) => {
@@ -17,7 +17,7 @@ const Input = ({ style }) => {
   };
 
   return (
-    <div style={style}>
+    <div style={style} className={classes.myInput}>
       <h1
         style={{
           width: "100%",
@@ -56,4 +56,4 @@ const Input = ({ style }) => {
   );
 };
 
-export default Input;
+export default MyInput;

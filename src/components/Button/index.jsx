@@ -1,13 +1,8 @@
-import React, { useState } from "react";
 import classes from "./index.module.scss";
-const Button = (props) => {
+const Button = ({ children, style, onClick }) => {
   return (
-    <button
-      className={classes.button}
-      style={props.style}
-      onClick={props.onClick}
-    >
-      {props.text}
+    <button className={classes.button} style={style} onClick={onClick}>
+      {children}
     </button>
   );
 };

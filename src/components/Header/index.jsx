@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.scss";
+import "./index.module.scss";
 import { Link } from "react-router-dom";
 
 import { useLottie } from "lottie-react";

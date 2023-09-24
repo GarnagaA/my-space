@@ -5,8 +5,9 @@
 @import "general";
 
 
-//@import "../components/index.scss";
+@import "../pages/index.scss";
+
+//@import "../components/Button/index.module";
+//@import '../components/ClassComponent/index.module';
+//@import '../components/FunctionalCounter/index.module';
 //
-//@import "../modules/index.scss";
-//
-//@import "../pages/index.scss";

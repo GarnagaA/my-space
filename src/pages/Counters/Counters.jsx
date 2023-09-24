@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import FunctionalCounter from "../components/FunctionalCounter";
-import Animation from "../components/Animation/Animation";
-import ClassComponent from "../components/ClassComponent";
-import Button from "../components/Button";
+import FunctionalCounter from "../../components/FunctionalCounter";
+import Animation from "../../components/Animation/Animation";
+import ClassComponent from "../../components/ClassComponent";
+import Button from "../../components/Button";
+// import lol from "";
 const Counters = () => {
   const [isVisible, setIsVisible] = useState(true);
   const onClickButton = (e) => {
@@ -11,6 +12,7 @@ const Counters = () => {
     setIsVisible((prev) => !prev);
   };
 
+  // const Lol = lol;
   return (
     <div
       style={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}

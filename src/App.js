@@ -1,9 +1,8 @@
-import "./App.scss";
 import { Route, Routes } from "react-router-dom";
 
-import Counters from "./pages/Counters";
+import Counters from "./pages/Counters/Counters";
 import MyInput from "./components/MyInput";
-import ErrorPage from "./pages/ErrorPage";
+import Index from "./pages/ErrorPage";
 import Header from "./components/Header";
 
 function App() {
@@ -11,13 +10,9 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<MyInput />} errorElement={<ErrorPage />} />
-        <Route
-          path="counter"
-          element={<Counters />}
-          errorElement={<ErrorPage />}
-        />
-        <Route path="error-page" element={<ErrorPage />} />
+        <Route path="/" element={<MyInput />} errorElement={<Index />} />
+        <Route path="counter" element={<Counters />} errorElement={<Index />} />
+        <Route path="error-page" element={<Index />} />
       </Routes>
     </div>
   );

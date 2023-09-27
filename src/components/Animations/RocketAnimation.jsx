@@ -2,7 +2,7 @@ import React from "react";
 import { useLottie } from "lottie-react";
 import rocketJSON from "../../assets/lottie/space-walking.json";
 
-const Animation = (props) => {
+const RocketAnimation = (props) => {
   const options = {
     animationData: rocketJSON,
     loop: true,
@@ -15,4 +15,4 @@ const Animation = (props) => {
   );
 };
 
-export default Animation;
+export default RocketAnimation;

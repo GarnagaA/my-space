@@ -1,7 +1,7 @@
 import classes from "./index.module.scss";
-const Button = ({ children, style, onClick }) => {
+const Button = ({ children, ...props }) => {
   return (
-    <button className={classes.button} style={style} onClick={onClick}>
+    <button {...props} className={classes.button}>
       {children}
     </button>
   );

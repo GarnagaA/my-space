@@ -1,10 +1,28 @@
-.post-item{
-  border: 1px solid rgba(15, 236, 152, 0.94);
-  padding: 1rem;
-  transition: 0.14s;
+@import "../../scss/colors";
 
-  &:hover{
-  transform: translateY(2px);
+.Post{
+  border: 2px solid $color-main-default;
+  border-radius: 0.4rem;
+  padding: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 1rem;
+
+  .wrapperContent {
+    .title {
+
+    }
+
+    .text {
+      width: 100%;
+    }
+  }
+
+  .wrapperButton {
+  width: 5%;
   }
 
 }

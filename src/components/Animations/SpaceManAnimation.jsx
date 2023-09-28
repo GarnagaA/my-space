@@ -1,14 +1,14 @@
 import React from "react";
 import { useLottie } from "lottie-react";
-import BlackHole from "../../assets/lottie/black-hole.json";
 
-const BlackHoleAnimation = (props) => {
+import spaceMan from "../../assets/lottie/spaceMan.json";
+const SpaceManAnimation = (props) => {
   const options = {
-    animationData: BlackHole,
+    animationData: spaceMan,
     loop: true,
   };
   const { View } = useLottie(options);
   return <div {...props}>{View}</div>;
 };
 
-export default BlackHoleAnimation;
+export default SpaceManAnimation;

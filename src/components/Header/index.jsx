@@ -1,17 +1,9 @@
 import React from "react";
 import "./index.module.scss";
 import { Link } from "react-router-dom";
-
-import { useLottie } from "lottie-react";
-import spaceMan from "../../assets/lottie/spaceMan.json";
+import SpaceManAnimation from "../Animations/SpaceManAnimation";
 
 const Header = () => {
-  const options = {
-    animationData: spaceMan,
-    loop: true,
-  };
-  const { View } = useLottie(options);
-
   const navLink = [
     {
       path: "/",
@@ -44,7 +36,7 @@ const Header = () => {
         <Link onClick={onActivePage} className="header__logo__link" to="/">
           <div className="header__logo">
             <h2 className="header__title">My</h2>
-            <div style={{ width: 90 }}>{View}</div>
+            <SpaceManAnimation style={{ width: 90 }} />
             <h2 className="header__title">Space</h2>
           </div>
         </Link>

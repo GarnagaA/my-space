@@ -73,13 +73,25 @@ const ToDoList = () => {
             </Button>
           </div>
         </form>
-        {!!posts.length ? (
+        {posts.length ? (
           <div className={classes.wrapperPostList}>
+            <h2>Список постов</h2>
+            <select>
+              <option value="отсортировать по..." defaultValue>
+                отсортировать по...
+              </option>
+            </select>
             <PostList posts={posts} />
           </div>
         ) : (
           <div className={classes.emptyList}>
             <h2>Список дел пуст!</h2>
+            <div className={classes.emptyImg}>
+              <img
+                src={require("../../assets/png/space-cats.png")}
+                alt="Cats in space"
+              />
+            </div>
           </div>
         )}
       </div>

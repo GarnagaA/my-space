@@ -1,9 +1,9 @@
 import classes from "./index.module.scss";
 import React from "react";
 
-const Input = ({ style, children, ...props }) => {
+const Input = ({ children, ...props }) => {
   return (
-    <div style={style} className={classes.myInput}>
+    <div style={props.style} className={classes.myInput}>
       <input {...props} />
       {children}
     </div>

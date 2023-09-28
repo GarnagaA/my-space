@@ -1,8 +1,10 @@
+@import "../../scss/colors";
+
 .counterWrapper{
   padding: 0.6rem 1rem;
-  color: #371A45;
+  color: $color-main-default;
   border-radius: 10px;
-  border: 1px solid #371A45 ;
+  border: 1px solid $color-main-default ;
 
   h2.title, h2.counterWindow{
     width: 100%;

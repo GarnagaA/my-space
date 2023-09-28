@@ -1,11 +1,13 @@
+@import "../../scss/colors";
+
 .ButtonDelete {
   width: 100%;
   height: 100%;
   .button {
-    color: #371A45;
+    color: $color-main-default;
 
     &:hover{
-      color: #980AD0;
+      color: $color-main-secondary;
     }
   }
 }

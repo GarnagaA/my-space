@@ -21,20 +21,65 @@
     width: 100%;
     max-height: 100%;
     margin-top: 2rem;
+
+    h2 {
+      text-align: center;
+      color: $color-main-default;
+    }
+
+    select {
+      height: 2rem;
+      border-radius: 0.6rem;
+      border: 2px solid  $color-main-default;
+
+
+
+      &:focus {
+        border-radius: 0.6rem;
+        border: 2px solid  $color-main-secondary;
+        outline: none;
+      }
+    }
   }
 
   .emptyList {
     display: flex;
-    margin-top: 50px;
+    margin-top: 2rem;
     justify-content: center;
+    flex-wrap: wrap;
 
     h2 {
       color: $color-main-default;
-      font-size: 2rem;
+      font-size: 2.4rem;
+      margin-top: 2rem;
+      width: 100%;
+      text-align: center;
     }
-    img {
+    .emptyImg {
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      margin-top: 2rem;
+      overflow: hidden;
+      box-shadow: 0 0 20px $color-main-default;
+      display: flex;
+      justify-content: center;
+      //transform: translate(-50%, -50%);
+      animation: 60s linear infinite rotate;
+
+      img{
+        height: 100%;
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
 
     }
   }
-
 }

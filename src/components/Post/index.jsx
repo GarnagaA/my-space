@@ -11,7 +11,7 @@ const Post = (props) => {
       <div className={classes.wrapperContent}>
         <strong>{props.number}.</strong>
         <span className={classes.title}>{props.title}</span>
-        <div className={classes.text}>{props.text}</div>
+        <div className={classes.body}>{props.body}</div>
       </div>
       <div className={classes.wrapperButton}>
         <ButtonDelete

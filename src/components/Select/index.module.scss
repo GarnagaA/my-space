@@ -1,0 +1,21 @@
+@import "../../scss/colors";
+
+.Select {
+  padding-left: 0.8rem;
+  height: 2rem;
+  border-radius: 0.6rem;
+  border: 2px solid  $color-main-default;
+
+  &:focus {
+    border-radius: 0.6rem;
+    border: 2px solid  $color-main-secondary;
+    outline: none;
+  }
+
+  option {
+    color: inherit;
+    &:hover {
+      color: $color-main-secondary;
+    }
+  }
+}

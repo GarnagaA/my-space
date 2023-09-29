@@ -22,24 +22,17 @@
     max-height: 100%;
     margin-top: 2rem;
 
-    h2 {
-      text-align: center;
-      color: $color-main-default;
-    }
+    .wrapperSelect {
+      display: flex;
 
-    select {
-      height: 2rem;
-      border-radius: 0.6rem;
-      border: 2px solid  $color-main-default;
-
-
-
-      &:focus {
-        border-radius: 0.6rem;
-        border: 2px solid  $color-main-secondary;
-        outline: none;
+      h2 {
+        width: 60%;
+        margin-right: 20%;
+        text-align: center;
+        color: $color-main-default;
       }
     }
+
   }
 
   .emptyList {
@@ -64,7 +57,6 @@
       box-shadow: 0 0 20px $color-main-default;
       display: flex;
       justify-content: center;
-      //transform: translate(-50%, -50%);
       animation: 60s linear infinite rotate;
 
       img{

@@ -9,7 +9,7 @@ const PostList = ({ posts }) => {
           number={index + 1}
           id={el.id}
           title={el.title}
-          text={el.text}
+          body={el.body}
         />
       ))}
     </ul>

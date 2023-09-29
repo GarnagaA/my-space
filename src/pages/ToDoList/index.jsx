@@ -7,26 +7,35 @@ import Input from "../../components/Input";
 import Button from "../../components/Button";
 import PostList from "../../components/PostList";
 import ButtonDelete from "../../components/ButtonDelete";
+import Select from "../../components/Select";
 import ToDoListContext from "./context";
 
 const ToDoList = () => {
   const [posts, setPosts] = useState([]); // хранилище постов
   const [formData, setFormData] = useState({
     title: "",
-    text: "",
+    body: "",
   });
 
+  const [selectedSort, setSelectedSort] = useState(""); // сортировка через <select>
   const createPost = (e) => {
     e.preventDefault();
     setPosts([...posts, { ...formData, id: Date.now() }]);
-    setFormData({ title: "", text: "" });
-    console.log(posts);
+    setFormData({ title: "", body: "" });
   };
 
   const deletePost = (id) => {
     console.log(id);
     setPosts((prev) => [...prev].filter((el) => el.id !== id));
-    console.log(posts);
+  };
+
+  const sortPosts = (sort) => {
+    setSelectedSort(sort);
+    if (posts.length) {
+      setPosts((prev) =>
+        [...prev].sort((a, b) => a[sort].localeCompare(b[sort])),
+      );
+    }
   };
 
   return (
@@ -52,17 +61,17 @@ const ToDoList = () => {
             </Input>
             <div style={{ height: "0.4rem" }}></div>
             <Input
-              value={formData.text}
+              value={formData.body}
               style={{ height: "2rem" }}
               type="text"
               placeholder="Описание поста"
               onChange={(e) =>
-                setFormData({ ...formData, text: e.target.value })
+                setFormData({ ...formData, body: e.target.value })
               }
             >
               <ButtonDelete
                 style={{ width: "5%" }}
-                onClick={() => setFormData({ ...formData, text: "" })}
+                onClick={() => setFormData({ ...formData, body: "" })}
               />
             </Input>
           </div>
@@ -75,12 +84,19 @@ const ToDoList = () => {
         </form>
         {posts.length ? (
           <div className={classes.wrapperPostList}>
-            <h2>Список постов</h2>
-            <select>
-              <option value="отсортировать по..." defaultValue>
-                отсортировать по...
-              </option>
-            </select>
+            <div className={classes.wrapperSelect}>
+              <Select
+                value={selectedSort}
+                onChange={sortPosts}
+                defaultValue="Сортировка ..."
+                style={{ width: "20%" }}
+                options={[
+                  { value: "title", name: "По названию" },
+                  { value: "body", name: "По описанию" },
+                ]}
+              />
+              <h2>Список постов</h2>
+            </div>
             <PostList posts={posts} />
           </div>
         ) : (

@@ -11,7 +11,6 @@ const ButtonDelete = (props) => {
         aria-label="delete"
         size="medium"
         onClick={props.onClick}
-        disabled={false}
       >
         <DeleteIcon />
       </IconButton>

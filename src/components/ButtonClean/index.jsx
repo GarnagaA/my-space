@@ -1,20 +1,21 @@
-import classes from "../../components/ButtonDelete/index.module.scss";
-import IconButton from "@mui/material/IconButton";
-import Close from "@mui/icons-material/Delete";
 import React from "react";
+import classes from "./index.module.scss";
+import Button from "@mui/material/Button";
+import Close from "@mui/icons-material/Close";
 
-const ButtonDelete = (props) => {
+const ButtonClean = ({ ...props }) => {
   return (
-    <IconButton
-      className={classes.button}
-      aria-label="delete"
-      size="medium"
-      onClick={props.onClick}
-      disabled={false}
-    >
-      <Close />
-    </IconButton>
+    <div className={classes.ButtonClean} {...props}>
+      <Button
+        className={classes.button}
+        aria-label="close"
+        size="medium"
+        onClick={props.onClick}
+      >
+        <Close />
+      </Button>
+    </div>
   );
 };
 
-export default ButtonDelete;
+export default ButtonClean;

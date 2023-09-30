@@ -2,6 +2,7 @@ import classes from "./index.module.scss";
 import Select from "../Select";
 import Input from "../Input";
 import React from "react";
+import ButtonClean from "../ButtonClean";
 
 const PostsFilter = ({ filter, setFilter, ...props }) => {
   return (
@@ -22,7 +23,12 @@ const PostsFilter = ({ filter, setFilter, ...props }) => {
           value={filter.query}
           onChange={(e) => setFilter({ ...filter, query: e.target.value })}
           placeholder="Поиск ..."
-        />
+        >
+          <ButtonClean
+            style={{ position: "absolute", right: 5 }}
+            onClick={() => setFilter({ ...filter, query: "" })}
+          />
+        </Input>
       </div>
     </div>
   );

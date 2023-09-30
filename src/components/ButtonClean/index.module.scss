@@ -1,13 +1,15 @@
 @import '../../scss/colors';
 
-.ButtonClose {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
+.ButtonClean {
+  //width: 100%;
+  //height: 100%;
+  //display: flex;
+  //justify-content: flex-end;
 
   .button {
     color: $color-main-default;
+    padding: 0;
+
 
     &:hover {
       color: $color-main-secondary;

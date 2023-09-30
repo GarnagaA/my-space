@@ -22,15 +22,22 @@
     max-height: 100%;
     margin-top: 2rem;
 
-    .wrapperSelect {
+    .wrapperSearch {
+      height: 2rem;
       display: flex;
-
-      h2 {
-        width: 60%;
-        margin-right: 20%;
-        text-align: center;
-        color: $color-main-default;
+      justify-content: space-between;
+      .wrapperSelect {
+        width: 30%;
       }
+      .wrapperInput {
+        width: 60%;
+      }
+
+    }
+    .postListTitle {
+      margin-top: 2rem;
+      text-align: center;
+      color: $color-main-default;
     }
 
   }
@@ -48,6 +55,7 @@
       width: 100%;
       text-align: center;
     }
+
     .emptyImg {
       width: 400px;
       height: 400px;

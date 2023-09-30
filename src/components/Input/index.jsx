@@ -4,7 +4,7 @@ import React from "react";
 const Input = ({ children, ...props }) => {
   return (
     <div style={props.style} className={classes.myInput}>
-      <input {...props} />
+      <input {...props} placeholder={props.placeholder} />
       {children}
     </div>
   );

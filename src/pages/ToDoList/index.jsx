@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 import classes from "./index.module.scss";
 
@@ -17,26 +17,44 @@ const ToDoList = () => {
     body: "",
   });
 
-  const [selectedSort, setSelectedSort] = useState(""); // сортировка через <select>
+  const [selectedSort, setSelectedSort] = useState(""); // сортировка через <Select/>
+  const [searchQuery, setSearchQuery] = useState(""); // сортировка через <Input/>
+
   const createPost = (e) => {
     e.preventDefault();
-    setPosts([...posts, { ...formData, id: Date.now() }]);
+    setPosts([
+      ...posts,
+      {
+        ...formData,
+        id: Date.now(),
+      },
+    ]);
     setFormData({ title: "", body: "" });
   };
-
   const deletePost = (id) => {
     console.log(id);
-    setPosts((prev) => [...prev].filter((el) => el.id !== id));
+    setPosts([...posts].filter((el) => el.id !== id));
   };
 
-  const sortPosts = (sort) => {
-    setSelectedSort(sort);
-    if (posts.length) {
-      setPosts((prev) =>
-        [...prev].sort((a, b) => a[sort].localeCompare(b[sort])),
+  const sortedPosts = useMemo(() => {
+    console.log("отработало useMemo");
+    if (selectedSort) {
+      return [...posts].sort((a, b) =>
+        a[selectedSort].localeCompare(b[selectedSort]),
       );
     }
-  };
+    return posts;
+  }, [selectedSort, posts]);
+
+  const sortedAndSearchedPosts = useMemo(() => {
+    return sortedPosts.filter((post) =>
+      post.title.toLowerCase().includes(searchQuery.toLowerCase().trim()),
+    );
+  }, [searchQuery, sortedPosts]);
+
+  // const sortPosts = (sort) => {
+  // setSelectedSort(sort)
+  // };
 
   return (
     <ToDoListContext.Provider
@@ -82,22 +100,35 @@ const ToDoList = () => {
             </Button>
           </div>
         </form>
-        {posts.length ? (
+        {posts.length ? ( // !!!!!!!!!!!!!!
           <div className={classes.wrapperPostList}>
-            <div className={classes.wrapperSelect}>
-              <Select
-                value={selectedSort}
-                onChange={sortPosts}
-                defaultValue="Сортировка ..."
-                style={{ width: "20%" }}
-                options={[
-                  { value: "title", name: "По названию" },
-                  { value: "body", name: "По описанию" },
-                ]}
-              />
-              <h2>Список постов</h2>
+            <div className={classes.wrapperSearch}>
+              <div className={classes.wrapperSelect}>
+                <Select
+                  value={selectedSort}
+                  onChange={(e) => setSelectedSort(e)}
+                  defaultValue="Сортировка ..."
+                  options={[
+                    { value: "title", name: "По названию" },
+                    { value: "body", name: "По описанию" },
+                  ]}
+                />
+              </div>
+              <div className={classes.wrapperInput}>
+                <Input
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Поиск ..."
+                />
+              </div>
             </div>
-            <PostList posts={posts} />
+            <h2 className={classes.postListTitle}>Список постов</h2>
+
+            {sortedAndSearchedPosts.length ? (
+              <PostList posts={sortedAndSearchedPosts} />
+            ) : (
+              <h3>Ничего на найдено...</h3>
+            )}
           </div>
         ) : (
           <div className={classes.emptyList}>

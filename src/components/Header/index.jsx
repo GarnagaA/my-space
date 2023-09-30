@@ -7,15 +7,15 @@ const Header = () => {
   const navLink = [
     {
       path: "/",
-      name: "To do list",
+      name: "to do list",
     },
     {
-      path: "counter",
-      name: "Counter",
+      path: "counter-timer",
+      name: "counter and timer",
     },
     {
-      path: "/",
-      name: "Home",
+      path: "post-list",
+      name: "post list",
     },
     {
       path: "error-page",

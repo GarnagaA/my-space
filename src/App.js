@@ -17,9 +17,13 @@ function App() {
           errorElement={<ErrorPage />}
         />
         <Route
-          path="counter"
+          path="counter-timer"
           element={<Counters />}
           errorElement={<ErrorPage />}
+        />
+        <Route
+          path="post-list"
+          element={<div style={{ backgroundColor: "grey", height: 300 }}></div>}
         />
         <Route path="error-page" element={<ErrorPage />} />
       </Routes>

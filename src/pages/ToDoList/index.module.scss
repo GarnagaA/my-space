@@ -8,32 +8,20 @@
 
     .wrapperInputs {
       width: 80%;
-      }
     }
 
     .wrapperButton {
       width: 18%;
       margin-left: 2%;
     }
-
+  }
 
   .wrapperPostList {
     width: 100%;
     max-height: 100%;
     margin-top: 2rem;
 
-    .wrapperSearch {
-      height: 2rem;
-      display: flex;
-      justify-content: space-between;
-      .wrapperSelect {
-        width: 30%;
-      }
-      .wrapperInput {
-        width: 60%;
-      }
 
-    }
     .postListTitle {
       margin-top: 2rem;
       text-align: center;

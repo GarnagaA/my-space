@@ -1,0 +1,14 @@
+@import "../../scss/colors";
+
+.wrapperSearch {
+  height: 2rem;
+  display: flex;
+  justify-content: space-between;
+
+  .wrapperSelect {
+    width: 30%;
+  }
+  .wrapperInput {
+    width: 60%;
+  }
+}

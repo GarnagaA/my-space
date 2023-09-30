@@ -2,35 +2,18 @@ import React from "react";
 import { useState, useMemo } from "react";
 
 import classes from "./index.module.scss";
-
-import Input from "../../components/Input";
-import Button from "../../components/Button";
-import PostList from "../../components/PostList";
-import ButtonDelete from "../../components/ButtonDelete";
-import Select from "../../components/Select";
 import ToDoListContext from "./context";
+
+import PostList from "../../components/PostList";
+import PostsFilter from "../../components/PostsFilter";
+import CreatePostForm from "../../components/CreatePostForm";
 
 const ToDoList = () => {
   const [posts, setPosts] = useState([]); // хранилище постов
-  const [formData, setFormData] = useState({
-    title: "",
-    body: "",
+  const [filter, setFilter] = useState({
+    selected: "",
+    query: "",
   });
-
-  const [selectedSort, setSelectedSort] = useState(""); // сортировка через <Select/>
-  const [searchQuery, setSearchQuery] = useState(""); // сортировка через <Input/>
-
-  const createPost = (e) => {
-    e.preventDefault();
-    setPosts([
-      ...posts,
-      {
-        ...formData,
-        id: Date.now(),
-      },
-    ]);
-    setFormData({ title: "", body: "" });
-  };
   const deletePost = (id) => {
     console.log(id);
     setPosts([...posts].filter((el) => el.id !== id));
@@ -38,94 +21,31 @@ const ToDoList = () => {
 
   const sortedPosts = useMemo(() => {
     console.log("отработало useMemo");
-    if (selectedSort) {
+    if (filter.selected) {
       return [...posts].sort((a, b) =>
-        a[selectedSort].localeCompare(b[selectedSort]),
+        a[filter.selected].localeCompare(b[filter.selected]),
       );
     }
     return posts;
-  }, [selectedSort, posts]);
+  }, [filter.selected, posts]);
 
-  const sortedAndSearchedPosts = useMemo(() => {
+  const filteredPosts = useMemo(() => {
     return sortedPosts.filter((post) =>
-      post.title.toLowerCase().includes(searchQuery.toLowerCase().trim()),
+      post.title.toLowerCase().includes(filter.query.toLowerCase()),
     );
-  }, [searchQuery, sortedPosts]);
-
-  // const sortPosts = (sort) => {
-  // setSelectedSort(sort)
-  // };
+  }, [filter.query, sortedPosts]);
 
   return (
-    <ToDoListContext.Provider
-      value={{ createPost, deletePost, posts, setPosts }}
-    >
+    <ToDoListContext.Provider value={{ deletePost, posts, setPosts }}>
       <div className={classes.wrapperToDoList}>
-        <form>
-          <div className={classes.wrapperInputs}>
-            <Input
-              value={formData.title}
-              style={{ height: "2rem" }}
-              type="text"
-              placeholder="Название поста"
-              onChange={(e) =>
-                setFormData({ ...formData, title: e.target.value })
-              }
-            >
-              <ButtonDelete
-                style={{ width: "5%" }}
-                onClick={() => setFormData({ ...formData, title: "" })}
-              />
-            </Input>
-            <div style={{ height: "0.4rem" }}></div>
-            <Input
-              value={formData.body}
-              style={{ height: "2rem" }}
-              type="text"
-              placeholder="Описание поста"
-              onChange={(e) =>
-                setFormData({ ...formData, body: e.target.value })
-              }
-            >
-              <ButtonDelete
-                style={{ width: "5%" }}
-                onClick={() => setFormData({ ...formData, body: "" })}
-              />
-            </Input>
-          </div>
-
-          <div className={classes.wrapperButton}>
-            <Button onClick={createPost} children>
-              Добавить
-            </Button>
-          </div>
-        </form>
-        {posts.length ? ( // !!!!!!!!!!!!!!
+        <CreatePostForm posts={posts} setPosts={setPosts} />
+        {posts.length ? (
           <div className={classes.wrapperPostList}>
-            <div className={classes.wrapperSearch}>
-              <div className={classes.wrapperSelect}>
-                <Select
-                  value={selectedSort}
-                  onChange={(e) => setSelectedSort(e)}
-                  defaultValue="Сортировка ..."
-                  options={[
-                    { value: "title", name: "По названию" },
-                    { value: "body", name: "По описанию" },
-                  ]}
-                />
-              </div>
-              <div className={classes.wrapperInput}>
-                <Input
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Поиск ..."
-                />
-              </div>
-            </div>
+            <PostsFilter filter={filter} setFilter={setFilter} />
             <h2 className={classes.postListTitle}>Список постов</h2>
 
-            {sortedAndSearchedPosts.length ? (
-              <PostList posts={sortedAndSearchedPosts} />
+            {filteredPosts.length ? (
+              <PostList posts={filteredPosts} />
             ) : (
               <h3>Ничего на найдено...</h3>
             )}

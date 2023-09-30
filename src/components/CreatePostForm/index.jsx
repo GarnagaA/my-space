@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import classes from "../../pages/ToDoList/index.module.scss";
+import classes from "./index.module.scss";
+
 import Input from "../Input";
 import ButtonDelete from "../ButtonDelete";
 import Button from "../Button";

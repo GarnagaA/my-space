@@ -13,14 +13,22 @@ const CreatePostForm = ({ posts, setPosts, ...props }) => {
 
   const createPost = (e) => {
     e.preventDefault();
-    setPosts([
-      ...posts,
-      {
-        ...formData,
-        id: Date.now(),
-      },
-    ]);
-    setFormData({ title: "", body: "" });
+    if (!!formData.title.trim() && !!formData.body.trim()) {
+      setPosts([
+        ...posts,
+        {
+          ...formData,
+          id: Date.now(),
+        },
+      ]);
+      setFormData({ title: "", body: "" });
+    }
+
+    // const checkValueInputs = () => {
+    //   if (!formData.title.trim() && !formData.body.trim()) {
+    //     return false;
+    //   }
+    // };
   };
   return (
     <form {...props}>

@@ -45,7 +45,7 @@ const ToDoList = () => {
             <h2 className={classes.postListTitle}>Список постов</h2>
 
             {filteredPosts.length ? (
-              <PostList posts={filteredPosts} />
+              <PostList posts={filteredPosts} isDeleteButton />
             ) : (
               <h3>Ничего на найдено...</h3>
             )}

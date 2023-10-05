@@ -3,9 +3,8 @@ import classes from "./index.module.scss";
 import ButtonDelete from "../ButtonDelete";
 import ToDoListContext from "../../pages/ToDoList/context";
 
-const Post = (props) => {
+const Post = ({ isDeleteButton, ...props }) => {
   const { deletePost } = useContext(ToDoListContext);
-
   return (
     <div className={classes.Post}>
       <div className={classes.wrapperContent}>
@@ -13,12 +12,14 @@ const Post = (props) => {
         <span className={classes.title}>{props.title}</span>
         <div className={classes.body}>{props.body}</div>
       </div>
-      <div className={classes.wrapperButton}>
-        <ButtonDelete
-          onClick={() => deletePost(props.id)}
-          style={{ right: 20 }}
-        />
-      </div>
+      {isDeleteButton && (
+        <div className={classes.wrapperButton}>
+          <ButtonDelete
+            onClick={() => deletePost(props.id)}
+            style={{ right: 20 }}
+          />
+        </div>
+      )}
     </div>
   );
 };

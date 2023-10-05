@@ -5,6 +5,7 @@ import Counters from "./pages/Counters/Counters";
 import Header from "./components/Header";
 import ErrorPage from "./pages/ErrorPage";
 import ToDoList from "./pages/ToDoList";
+import FetchPage from "./pages/FetchPage";
 
 function App() {
   return (
@@ -21,10 +22,7 @@ function App() {
           element={<Counters />}
           errorElement={<ErrorPage />}
         />
-        <Route
-          path="post-list"
-          element={<div style={{ backgroundColor: "grey", height: 300 }}></div>}
-        />
+        <Route path="fetch-page" element={<FetchPage />} />
         <Route path="error-page" element={<ErrorPage />} />
       </Routes>
     </div>

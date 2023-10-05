@@ -1,18 +1,37 @@
-.post-enter {
+.drive-enter {
   transition: all 500ms ease-in;
   transform: translateX(-70vw) ;
 }
-.post-enter-active {
+.drive-enter-active {
   transition: all 500ms ease-in;
   transform: translateX(0px) ;
 }
 
-.post-exit {
+.drive-exit {
   transition: all 500ms ease-in;
   transform: translateX(0px) ;
 }
 
-.post-exit-active {
+.drive-exit-active {
   transition: all 500ms ;
   transform: translateX(70vw);
+}
+
+
+.opacity-enter {
+  transition: all 500ms ease-in;
+  opacity: 0.2;
+}
+.opacity-enter-active {
+  transition: all 500ms ease-in;
+  opacity: 1;
+}
+
+.opacity-exit {
+  transition: opacity 500ms ease-in;
+  opacity: 1;
+}
+
+.opacity-exit-active {
+  opacity: 0.5;
 }

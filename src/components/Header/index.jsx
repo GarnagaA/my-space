@@ -7,15 +7,15 @@ const Header = () => {
   const navLink = [
     {
       path: "/",
-      name: "to do list",
+      name: "ToDoList",
     },
     {
       path: "counter-timer",
-      name: "counter and timer",
+      name: "Counters",
     },
     {
-      path: "post-list",
-      name: "post list",
+      path: "fetch-page",
+      name: "FetchPage",
     },
     {
       path: "error-page",
@@ -33,7 +33,7 @@ const Header = () => {
   return (
     <div className="header__wrapper">
       <div className="header">
-        <Link onClick={onActivePage} className="header__logo__link" to="/">
+        <Link to="/" onClick={onActivePage} className="header__logo__link">
           <div className="header__logo">
             <h2 className="header__title">My</h2>
             <SpaceManAnimation style={{ width: 90 }} />

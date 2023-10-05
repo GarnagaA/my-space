@@ -24,13 +24,12 @@
     display: flex;
     align-items: center;
     .nav-list {
-      font-size: 20px;
+      font-size: 1rem;
       list-style: none;
       display: flex;
 
       .nav-list__li{
         display: inherit;
-        padding: 10px;
         transition: ease-in-out 0.12s;
         &:hover {
           transform: translateY(-1px);
@@ -39,8 +38,8 @@
         .nav-list__link {
           list-style-type: none;
           text-decoration: none;
-          padding: 10px;
-          margin: 10px;
+          padding: 0.3rem;
+          margin: 0.3rem;
           color: $color-main-default;
           border-radius: 10px;
           border: 1px solid white;

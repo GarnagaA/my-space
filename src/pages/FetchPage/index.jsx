@@ -1,26 +1,37 @@
 import React, { useEffect, useMemo, useState } from "react";
-import PostsFilter from "../../components/PostsFilter";
-import PostService from "../../API/PostService";
-import PostList from "../../components/PostList";
-import cl from "./index.module.scss";
-import BlackHole from "../../components/Animations/BlackHole";
 import { useFetching } from "../../hooks/useFetching";
+import { getPageCount } from "../../utils/pages";
+
+import PostsFilter from "../../components/PostsFilter";
+import PostList from "../../components/PostList";
+import BlackHole from "../../components/Animations/BlackHole";
 import ErrorPage from "../ErrorPage";
 
+import PostService from "../../API/PostService";
+import cl from "./index.module.scss";
+import Pagination from "../../components/Pagination";
+
 const FetchPage = () => {
-  const [fetchData, isLoading, error] = useFetching(async () => {
-    const response = await PostService.getAll();
-    setPosts([...response]);
-  });
   const [posts, setPosts] = useState([]); // хранилище постов
   const [filter, setFilter] = useState({
     selected: "",
     query: "",
   });
 
+  const [totalPages, setTotalPages] = useState(0);
+  const [limit, setLimit] = useState(10);
+  const [page, setPage] = useState(1);
+
+  const [fetchData, isLoading, error] = useFetching(async () => {
+    const response = await PostService.getAll(limit, page);
+    setPosts([...response.data]);
+    const totalCount = response.headers["x-total-count"];
+    setTotalPages(getPageCount(totalCount, limit));
+  });
+
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [page]);
 
   const sortedList = useMemo(() => {
     console.log("отработало useMemo");
@@ -46,11 +57,12 @@ const FetchPage = () => {
       {error && <ErrorPage />}
       {isLoading ? (
         <div className={cl.wrapperAnimation}>
-          <BlackHole style={{ width: 400 }} />
+          <BlackHole style={{ marginTop: 200, width: 400 }} />
         </div>
       ) : (
         <PostList posts={filteredList} animationType="opacity" />
       )}
+      <Pagination totalPages={totalPages} page={page} setPage={setPage} />
     </div>
   );
 };

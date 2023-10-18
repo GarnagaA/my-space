@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/my-space/static/css/main.985bf02e.css",
+    "main.js": "/my-space/static/js/main.11d0971b.js",
+    "static/media/interstellar-cry.gif": "/my-space/static/media/interstellar-cry.a5ff8d993bf32fc21250.gif",
+    "static/media/SpaceMono-Regular.ttf": "/my-space/static/media/SpaceMono-Regular.8a2aa304d0bd5e41d186.ttf",
+    "static/media/space-cats.png": "/my-space/static/media/space-cats.05a0d7894733b49ccccd.png",
+    "index.html": "/my-space/index.html",
+    "main.985bf02e.css.map": "/my-space/static/css/main.985bf02e.css.map",
+    "main.11d0971b.js.map": "/my-space/static/js/main.11d0971b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.985bf02e.css",
+    "static/js/main.11d0971b.js"
+  ]
+}
